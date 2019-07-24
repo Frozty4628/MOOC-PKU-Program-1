@@ -1,0 +1,9 @@
+﻿#include <iostream>
+using namespace std;
+
+int main() {
+	float a = 0.0;
+	double b = 0.0;
+	cout << sizeof(a) << " " << sizeof(b);
+	return 0;
+}
