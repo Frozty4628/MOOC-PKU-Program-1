@@ -6,10 +6,9 @@ using namespace std;
 #define REQUEST 20
 
 int main() {
-	int h = 0, r = 0, n = 0;
-	cin >> h >> r;
-	double V = (PI * r * r * h) / 1000.0;
-	n = ceil(REQUEST / V);
-	cout << n;
+	unsigned int x = 0xffffffff;
+	unsigned int b = x + 2;
+	int y = x;
+	printf("%x,%d,%x,%d", y, y, b, b);
 	return 0;
 }

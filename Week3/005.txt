@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main() {
+	int in1 = 0, in2 = 0; char op_char = '\0';
+	int result = 0;
+	if (cin >> in1 >> in2 >> op_char) {
+		switch (op_char) {
+		case '+':
+			result = in1 + in2;
+			cout << result;
+			break;
+		case '-':
+			result = in1 - in2;
+			cout << result;
+			break;
+		case '*':
+			result = in1 * in2;
+			cout << result;
+			break;
+		case '/':
+			if (in2 != 0) {
+				result = in1 / in2;
+				cout << result;
+			} else {
+				cout << "Divided by zero!";
+			}
+			break;
+		default:
+			cout << "Invalid operator!";
+			break;
+		}
+	}
+	return 0;
+}

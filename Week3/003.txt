@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+#define X1 1
+#define X2 -1
+#define Y1 1
+#define Y4 -1
+
+int main() {
+	int x = 0, y = 0;
+	cin >> x >> y;
+	if ((X2 <= x && x <= X1) && (Y4 <= y && y <= Y1)) {
+		cout << "yes";
+	} else {
+		cout << "no";
+	}
+	return 0;
+}

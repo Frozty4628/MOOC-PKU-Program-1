@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+#define EPS 0.0000000000001
+
+int main() {
+	double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+	cin >> a >> b >> c;
+	double b_pow2 = b * b, ac4_root = 4 * a * c;
+	if (abs(b_pow2 - ac4_root) < EPS) {
+		x1 = ((0 - b) + sqrt(b_pow2 - ac4_root)) / (2 * a), x2 = ((0 - b) - sqrt(b_pow2 - ac4_root)) / (2 * a);
+		if (x2 - x1 > EPS) {
+			swap(x1, x2);
+		}
+		cout.setf(ios::fixed);
+		cout << "x1=x2=" << setprecision(5) << x1;
+	} else if (b_pow2 - ac4_root > EPS) {
+		x1 = ((0 - b) + sqrt(b_pow2 - ac4_root)) / (2 * a), x2 = ((0 - b) - sqrt(b_pow2 - ac4_root)) / (2 * a);
+		if (x2 - x1 > EPS) {
+			swap(x1, x2);
+		}
+		cout.setf(ios::fixed);
+		cout << "x1=" << setprecision(5) << x1 << ";x2=" << setprecision(5) << x2;
+	} else if (ac4_root - b_pow2 > EPS) {
+		double real_root = 0, imagi_root = 0;
+		real_root = (0 - b) / (2 * a) * 1.0;
+		imagi_root = sqrt(ac4_root - b_pow2) / (2 * a);
+		cout.setf(ios::fixed);
+		cout << "x1=" << setprecision(5) << real_root << "+" << imagi_root << "i" << ";x2=" << real_root << "-" << imagi_root << "i";
+	}
+	return 0;
+}

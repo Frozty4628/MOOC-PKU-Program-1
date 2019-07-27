@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#define cin std::ios::sync_with_stdio(false);cin
+#define EPS 1e-8
+
+int main() {
+	int n = 0, treat = 0, cure = 0;
+	cin >> n;
+	cin >> treat >> cure;
+	const double rate0 = (double)cure / (double)treat;
+	n--;
+	while (n >= 1 && cin >> treat >> cure) {
+		double rate = (double)cure / (double)treat;
+		if (rate - rate0 > 0.05 + EPS) {
+			cout << "better";
+		} else if (rate0 - rate > 0.05 + EPS) {
+			cout << "worse";
+		} else {
+			cout << "same";
+		}
+		if (n > 1) {
+			cout << endl;
+		}
+		n--;
+	}
+	return 0;
+}

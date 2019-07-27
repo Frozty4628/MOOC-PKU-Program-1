@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+#define cin std::ios::sync_with_stdio(false);cin
+
+int golds = 0, silvers = 0, bronzes = 0, total = 0;
+//int *golds = &golds, *silvers = &silvers, *bronzes = &bronzes, *total = &total;
+int &gld = golds, &sil = silvers, &brz = bronzes, &ttl = total;
+
+int prize_count(int gldin, int silin, int brzin);
+
+int main() {
+	int days = 0, gldin = 0, silin = 0, brzin = 0;
+	cin >> days;
+	while (days >= 1 && days <= 17) {
+		cin >> gldin >> silin >> brzin;
+		prize_count(gldin, silin, brzin);
+		days--;
+	}
+	cout << golds << ' ' << silvers << ' ' << bronzes << ' ' << total;
+	return 0;
+}
+
+int prize_count(int gldin, int silin, int brzin) {
+	gld += gldin, sil += silin, brz += brzin;
+	ttl += gldin + silin + brzin;
+	return 0;
+}

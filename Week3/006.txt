@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+#define cin std::ios::sync_with_stdio(false);cin
+using namespace std;
+
+int main() {
+	int n = 0, sum = 0;double average=0;
+	cin >> n;
+	if (n >= 1 && n <= 10000) {
+		int num_in = 0, n_temp = n;
+		while (n_temp > 0) {
+			cin >> num_in;
+			sum += num_in;
+			n_temp--;
+		}
+		average = sum / (n * 1.0);
+		cout.setf(ios::fixed);
+		cout << sum << " " << setprecision(5) << average;
+	}
+	return 0;
+}
