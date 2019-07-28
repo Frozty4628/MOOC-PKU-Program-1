@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+
+int main() {
+	int a = 0, b = 0, c = 0;
+	for (a = 0; a <= 6; a++) {
+		for (b = 0; b <= 6; b++) {
+			for (c = 0; c <= 6; c++) {
+				if ((a * 7 * 7 + b * 7 + c) == (c * 9 * 9 + b * 9 + a)) {
+					if (a == 0 && b == 0 && c == 0)
+						continue;
+					int result = a * 7 * 7 + b * 7 + c;
+					cout << result << endl;
+					cout << a << b << c << endl;
+					cout << c << b << a;
+					return 0;
+				}
+			}
+		}
+	}
+	return 0;
+}

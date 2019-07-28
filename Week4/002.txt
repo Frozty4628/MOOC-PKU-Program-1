@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+
+bool isNormal(int highprs, int lowprs);
+
+int main() {
+	int n = 0, highprs = 0, lowprs = 0;
+	int last_hrs = 0, longest_last = 0;
+	//freopen("in.txt", "r", stdin);
+	cin >> n;
+	while (n >= 1) {
+		cin >> highprs >> lowprs;
+		if (isNormal(highprs, lowprs)) {
+			last_hrs++;
+			if (last_hrs > longest_last)
+				longest_last++;
+		}
+		else
+			last_hrs = 0;
+		n--;
+	}
+	cout << longest_last;
+	return 0;
+}
+
+bool isNormal(int highprs, int lowprs) {
+	if (highprs >= 90 && highprs <= 140 && lowprs >= 60 && lowprs <= 90)
+		return true;
+	else
+		return false;
+}

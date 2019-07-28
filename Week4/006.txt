@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+
+int main() {
+	int L, R, n, nums = 0;
+	string s;
+	cin >> L >> R;
+	s=to_string(R);
+	for (n = L; n <= R; n++) {
+		s=to_string(n);
+		nums += count(s.begin(), s.end(), '2');
+	}
+	cout << nums;
+	return 0;
+}

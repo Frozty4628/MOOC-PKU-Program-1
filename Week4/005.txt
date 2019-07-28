@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#pragma warning(disable:6031)
+//#define cin std::ios::sync_with_stdio(false);cin
+
+bool reload(int &energy, int N, int &stamina, int M);
+
+int main() {
+	int M, N, X;
+	int peroid, m, combated;
+	int &strength = N, &energy = X, &stamina = m, &combat_days = combated;
+	//freopen("in.txt", "r", stdin);
+	cin >> M >> N >> X;
+	for (; X > 0;) {
+		//Reload stamina and tell if to quit combat. 
+		if (reload(energy, N, stamina, M) == false)
+			break;
+		//Combat
+		if (stamina == M) {
+			peroid = M;
+			if (stamina >= strength) {
+				strength += M / N;
+			} else {
+				break;
+			}
+			stamina = 0;//Combat ends and stamina turns to 0. 
+		}
+	}
+	cout << strength;
+	return 0;
+}
+
+bool reload(int &energy, int N, int &stamina, int M) {
+	if (energy > 0 && N >= M) {
+		energy--;
+		stamina = M;
+		return true;
+	} else if (energy > 0 && N < M) {
+		int origin_energy = energy;
+		energy -= M / N;
+		if (M % N != 0)
+			energy--;
+		if (energy < 0) {
+			while (energy < origin_energy) {
+				energy++;
+				if (energy >= 0)
+					return true;
+			}
+			return false;
+		}
+		stamina = M;
+		return true;
+	} else {
+		return false;
+	}
+}
