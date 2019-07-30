@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+int A[110][110] = { {0,0} };
+int B[110][110] = { {0,0} };
+
+void swapA(int *a, int *b);
+int main() {
+	int m = 0, n = 0;
+	//Using freopen for in/out. 
+	/*if (freopen("in.txt", "r", stdin) == NULL)
+		return 1;
+	if (freopen("out.txt", "w", stdout) == NULL)
+		return 1;*/
+	cin >> m >> n;
+	for (int i = 1; i <= m; i++) {
+		for (int j = 1; j <= n; j++) {
+			cin >> A[i][j];
+			B[j][i] = A[i][j];
+		}
+	}
+	//Tramsform
+
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			cout << B[i][j];
+			if (j < m)
+				cout << " ";
+		}
+		if (i < n)
+			cout << endl;
+	}
+	return 0;
+}
+
+void swapA(int *a, int *b) {
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}

@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+int Original[110][110] = { {0,0} };
+int Processed[110][110] = { {0,0} };
+
+int main() {
+	int m = 0, n = 0;
+	cin >> m >> n;
+	int i = 0, j = 0;
+	//Input image
+	for (i = 1; i <= m; i++) {
+		for (j = 1; j <= n; j++) {
+			cin >> Original[i][j];
+			Processed[i][j] = Original[i][j];
+		}
+	}
+	//Processing
+	for (i = 2; i <= m - 1; i++) {
+		for (j = 2; j <= n - 1; j++) {
+			Processed[i][j] = int(round((double(Original[i][j]) + double(Original[i - 1][j]) + double(Original[i + 1][j]) + double(Original[i][j - 1]) + double(Original[i][j + 1])) / 5.0));
+		}
+	}
+	//Output
+	for (i = 1; i <= m; i++) {
+		for (j = 1; j <= n; j++) {
+			cout << Processed[i][j];
+			if (j < n)
+				cout << " ";
+		}
+		if (i < m)
+			cout << endl;
+	}
+	return 0;
+}
