@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+int MaxFactor(int a, int b);
+
+int main() {
+	int a, b;
+	cin >> a >> b;
+	cout << MaxFactor(a, b);
+	return 0;
+}
+
+int MaxFactor(int a, int b) {
+	if (a > b)
+		swap(a, b);
+	int c = 0; c = a;
+	while (b % a != 0) {
+		c = b % a;
+		b = a;
+		a = c;
+	}
+	return c;
+}

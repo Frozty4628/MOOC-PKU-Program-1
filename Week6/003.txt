@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+int bitManipulation1(int n, int m, int i);
+
+int main() {
+	int n, m, i, t;
+	cin >> t;
+	while (t--) {
+		cin >> n >> m >> i;
+		cout << bitManipulation1(n, m, i) << endl;
+	}
+	return 0;
+}
+
+int bitManipulation1(int n, int m, int i) {
+	if (m & (1 << i))
+		return (1 << i) | n;
+	else
+		return (~(1 << i)) & n;
+	return 0;
+}

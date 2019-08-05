@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+int bitManipulation3(int n, int i);
+
+int main() {
+	int t, n, i;
+	cin >> t;
+	while (t--) {
+		cin >> n >> i;
+		cout << bitManipulation3(n, i) << endl;
+	}
+	return 0;
+}
+
+int bitManipulation3(int n, int i) {
+	return(-1 << (32 - i)) ^ n; //Warning
+	return 0;
+}
