@@ -23,5 +23,23 @@
     <Text Include="default.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="001.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="002.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="003.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="004_OJ_version.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="004_Non_OJ_version.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="005.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

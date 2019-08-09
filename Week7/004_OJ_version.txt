@@ -1,0 +1,38 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+
+int main(){
+    char s[20000];
+    int i=0,j=0; //j用来记录每个单词的长度
+    int max=0,min=200;
+    int n,m,t,maxbegin,minbegin;
+    cin.getline(s,20000);
+    t=strlen(s);
+    while(s[i]!='\0')//遍历字符串 
+    {
+        if((s[i]!=' ')&&(i!=t-1)){j++;}//字符有三种情况：1非空格且非末尾 
+        if(s[i]==' '){
+           n=j;
+           m=i-j;
+           if(n>max){max=n;maxbegin=m;}
+           if(n<min){min=n;minbegin=m;}
+           j=0;}//2空格，遇到空格则切断并标记单词长度和起始位置，并将单词长度j置零 
+        if(i==t-1){
+           j++;
+           n=j;
+           m=i-j+1;
+           if(n>max){max=n;maxbegin=m;}
+           if(n<min){min=n;minbegin=m;}
+           j=0;}//3末尾，遇到末尾则切断并标记单词长度和起始位置 
+        i++;
+    }
+    for(int k=maxbegin;k<max+maxbegin;k++){
+        cout<<s[k];
+    }
+    cout<<endl;
+    for(int l=minbegin;l<min+minbegin;l++){
+    cout<<s[l];
+    }
+    return 0;
+}

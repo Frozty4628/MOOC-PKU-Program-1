@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//#pragma warning(disable:4996)
+//#define cin std::ios::sync_with_stdio(false);cin
+
+int main() {
+	//65～90号为26个大写英文字母，97～122号为26个小写英文字母
+	string origin_string, encrypted_string;
+	getline(cin, origin_string); encrypted_string = origin_string;
+	for (int i = 0, s_ascii = 0; i < origin_string.length(); i++) {
+		s_ascii = int(encrypted_string[i]);
+		if ((s_ascii >= 97 && s_ascii <= 122) || (s_ascii >= 65 && s_ascii <= 90)) {
+			if (s_ascii == 122 || s_ascii == 90) {
+				encrypted_string[i] = char(s_ascii - 25);
+			} else {
+				encrypted_string[i] = char(s_ascii + 1);
+			}
+		}
+	}
+	origin_string.~basic_string();
+	cout << encrypted_string;
+	return 0;
+}

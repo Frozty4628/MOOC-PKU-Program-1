@@ -1,6 +1,4 @@
 ﻿#include <iostream>
-#include <cmath>
-#include <iomanip>
 using namespace std;
 
 //#pragma warning(disable:4996)
